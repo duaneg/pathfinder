@@ -1905,6 +1905,7 @@ define([
         options = $.extend({}, defaultOptions, options);
 
         return this.each(function(){
+            if(!planets) return '<table></table>'
             if(planets.length){
                 // Abyss systems don´t have planets -> no tooltip
                 let element = $(this);

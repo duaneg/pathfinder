@@ -945,6 +945,7 @@ define([
         }
         return url;
     };
+
     /**
      * convert unicode to string
      * @param text
@@ -952,8 +953,8 @@ define([
      */
     const unicodeToString = (text) => {
         const result = text.replace(/\\u[\dA-F]{4}/gi, (match) => String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16)))
-        return result.substring(0, 2) == "u'" ? result.substring(2, result.length - 1) : result
-    }
+        return result.substring(0, 2) == "u'" ? result.substring(2, result.length - 1) : result;
+    };
 
     /**
      * polyfill for "passive" events
@@ -2524,6 +2525,7 @@ define([
      * @returns {string}
      */
     let getSystemPlanetsTable = planets => {
+        if(!planets) return '<table></table>'
         let table = '';
         if(planets.length > 0){
             let regex = /\(([^)]+)\)/;
